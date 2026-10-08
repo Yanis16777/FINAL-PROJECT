@@ -1,0 +1,63 @@
+import telebot
+import requests
+import random
+TOKEN = "8894276748:AAErpFchfkyTesLjLV9Ve9XWKDG6hqwI8KQ"
+
+bot = telebot.TeleBot(TOKEN)
+facts = [
+    "из-за глобального потепления таятк леднеки, и повышается уровень воды",
+    "Из-за глобального потепления страдают белые медведи",
+    "Из-за вырубки деревьев глобальное потепление прогрессирует",
+
+]
+
+
+
+
+
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(
+        message.chat.id,
+        "привет я бот который помже тебе с глобальным потеплением, выбери возрастную группу с помощью команды, команды узнай через /help"
+
+
+    )
+
+@bot.message_handler(commands=['Im_14_years_old'])
+def help1_message(message):
+  bot.send_message(
+      message.chat.id,
+      "Раз тебе уже 14 лет, то у тебя уже есть паспорт, ты вполне мог бы найти людей которые хотят найти способ остановить глобальное потеплени или сам создать такую группу"
+  )
+
+@bot.message_handler(commands=['Im_10_years_old'])
+def help2_message(message):
+  bot.send_message(
+      message.chat.id,
+      "Раз тебе 10 лет, то ты мог бы следить в доме чтоб не было включено лишних приборов, выключать свет перед уходом, вынимать зарядку из разетки когда телефон разряжен, или экономить воду, к примеру не включай воду когда чистишь зубы"
+  )
+
+@bot.message_handler(commands=['Im_5_years_old'])
+def help1_message(message):
+  bot.send_message(
+      message.chat.id,
+      "Ты еще слишком маленький для таких важных задачь, узнай пока что такое глобальное потепление через команду /info"
+  )
+@bot.message_handler(commands=['info'])
+def help1_message(message):
+  bot.send_message(
+      message.chat.id,
+      "Глобальное потепление — это постепенное и устойчивое повышение средней температуры воздуха у поверхности Земли на протяжении последних десятилетий. Оно связано с усилением парникового эффекта, когда концентрация парниковых газов в атмосфере растёт, из-за чего планета удерживает больше тепла, чем необходимо. "
+  )
+@bot.message_handler(commands=['help'])
+def help0_message(message):
+  bot.send_message(
+      message.chat.id,
+      "есть команды /info , /Im_5_years_old , /Im_10_years_old , и /Im_14_years_old"
+  )
+@bot.message_heanler(commands=['random'])
+def random_facting(message):
+
+
+bot.polling()
